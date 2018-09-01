@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  value: 
+  weight: 1
+  location: MyString
+
+two:
+  name: MyString
+  value: 
+  weight: 1
+  location: MyString
