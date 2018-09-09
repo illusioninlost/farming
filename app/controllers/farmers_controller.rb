@@ -22,7 +22,7 @@ class FarmersController < ApplicationController
  
   def create
     @farmer = Farmer.new(farmer_params)
-
+    
     respond_to do |format|
       if @farmer.save
         format.html { redirect_to @farmer, notice: 'Farmer was successfully created.' }
@@ -32,6 +32,10 @@ class FarmersController < ApplicationController
         format.json { render json: @farmer.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def log_in
+    redirect_to root_path
   end
 
   def update

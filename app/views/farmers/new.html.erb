@@ -11,8 +11,8 @@
 <%-# Sign up -%>
         <div class="col-6 ">
 
-            <h1>Sign in</h1>
-            <%=form_for @farmer, controller: 'farmers', action: 'sign-up' do |f| %>
+            <h1>Log in</h1>
+            <%=form_for @farmer, controller: 'farmers', action: 'log_in' do |f| %>
                 <div class="field">
                     <%= f.label :username %>
                     <%= f.text_field :username %>
@@ -28,6 +28,6 @@
         </div>
     </div>
 </div>
-<hr>
 
-<%= link_to 'Back', farmers_path %>
+<br>
+<br>
