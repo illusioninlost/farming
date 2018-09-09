@@ -3,5 +3,5 @@ class Farmer < ApplicationRecord
     validates :username, presence: true, length: 3..20, uniqueness: true
     validates :password, length: 3..20, presence: true
     validates :name, presence: true, uniqueness: true
-    
+    has_many :items
 end

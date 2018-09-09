@@ -5,5 +5,4 @@ class Item < ApplicationRecord
     validates :location, presence: true, length: { maximum: 30 }, uniqueness: true
     belongs_to :farmer
 
-
 end
