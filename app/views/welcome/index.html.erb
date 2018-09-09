@@ -7,37 +7,36 @@
     </div>
 <br>
     <div class="container">
-    <%= image_tag("farm.jpg", size: "900x450" , alt: "farmlands") %>
+    <%= image_tag("farms/farm.jpg", size: "900x450" , alt: "farmlands") %>
     <div>
 <br>
 <br>
-    <h3 class="container">
-    <%=link_to "Go see what farmers offer >>", items_path%>
+    <h3 class="container" id="bigger">
+    <%=link_to "Go See What Farmers Offer >>", items_path%>
     </h3>
 <br>
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>Fruits</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Fruits & Vegetables</h2>
+          <p>The subject of fruit and nut production deals with intensive culture of perennial plants, the fruits of which have economic significance (a nut is a fruit, botanically). It is one part of the broad subject of horticulture, which also encompasses vegetable growing and production of ornamentals and flowers.  </p>
+          <%= image_tag("fruits_and_vegs/corn.jpg", size: "300", alt: "rows of corn") %>
+          <%= image_tag("fruits_and_vegs/grapes.jpg",size: "300", alt: "rows of grapes") %>
         </div>
         <div class="col-md-4">
           <h2>Livestock</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Livestock farming, raising of animals for use or for pleasure. In this article, the discussion of livestock includes both beef and dairy cattle, pigs, sheep, goats, horses, mules, asses, buffalo, and camels; the raising of birds commercially for meat or eggs (i.e., chickens, turkeys, ducks, geese, guinea fowl, and squabs) is treated separately. </p>
+          <%= image_tag("livestock/cattle.jpg", size: "300", alt: "roaming cattle in the sun") %>
+          <%= image_tag("livestock/goats.jpg", size: "300", alt: "roaming goats with a farmer") %>
        </div>
         <div class="col-md-4">
           <h2>Medicinal Plants</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>An herb farm is usually a farm where herbs are grown for market sale. Herbs may be for culinary, medicinal or aromatic use, and sold fresh-cut or dried. Herbs may also be grown for their essential oils or as raw material for making herbal products. </p>
+          <%= image_tag("herbs/basil.jpg", size: "300", alt: "some basil") %>
+          <%= image_tag("herbs/chives.jpg", size: "300", alt: "some chives") %>
         </div>
       </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2016 Farming, Inc.</p>
-      </footer>
+    
 </div>
