@@ -15,7 +15,7 @@ Comment.create!(content:"The tomatos are good.")
 Comment.create!(content:"The corn is expensive.")
 Comment.create!(content:"Lots of fresh food as always.")
 
-Item.create!(name:"tomato", value: "1.23", weight: "100", location: "Red Hollow")
-Item.create!(name:"potato", value: "0.50", weight: "200", location: "Grounds Up Farm")
-Item.create!(name:"lemon", value: "0.33", weight: "300", location: "Yellow Farm")
+Item.create!(name:"tomato", value: "1.23", weight: "100", location: "Red Hollow", farmer_id: 1)
+Item.create!(name:"potato", value: "0.50", weight: "200", location: "Grounds Up Farm", farmer_id: 1)
+Item.create!(name:"lemon", value: "0.33", weight: "300", location: "Yellow Farm", farmer_id: 1)
 

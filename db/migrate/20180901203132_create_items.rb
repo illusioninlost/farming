@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.float :value
       t.integer :weight
       t.string :location
-
+      t.belongs_to :farmer, index: true
       t.timestamps
     end
   end

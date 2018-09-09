@@ -1,33 +1,11 @@
 <%-# Sign in -%>
 
-<div class= "container">
-    <div class = "row">
-        <div class="col-6 ">
-            <h1>Sign up</h1>
-            <%= render 'form', farmer: @farmer %>
-        </div>
+
+    
+    <h1>Sign up</h1>
+    <%= render 'form', farmer: @farmer %>
 
 
-<%-# Sign up -%>
-        <div class="col-6 ">
 
-            <h1>Log in</h1>
-            <%=form_for @farmer, controller: 'farmers', action: 'log_in' do |f| %>
-                <div class="field">
-                    <%= f.label :username %>
-                    <%= f.text_field :username %>
-                </div>
 
-                <div class="field">
-                    <%= f.label :password %>
-                    <%= f.text_field :password %>
-                </div>
-
-            <%= f.submit "Sign Up" %>
-            <%end%>
-        </div>
-    </div>
-</div>
-
-<br>
 <br>

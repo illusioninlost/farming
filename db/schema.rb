@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 2018_09_08_002116) do
     t.float "value"
     t.integer "weight"
     t.string "location"
+    t.integer "farmer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["farmer_id"], name: "index_items_on_farmer_id"
   end
 
 end
