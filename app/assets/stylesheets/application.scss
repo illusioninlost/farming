@@ -13,4 +13,17 @@
 
  *= require_self
  */
-@import 'bootstrap'
+
+@import 'bootstrap';
+
+
+p.navbar-brand {
+    font-size: 30px;
+}
+
+#blue {
+    color: blue;
+}
+
+
+
