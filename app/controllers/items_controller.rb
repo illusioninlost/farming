@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
   end
   # GET /items/new
   def new
-
     @item = Item.new
   end
 
@@ -24,17 +23,10 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
+    @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
+    @current_user.items.create!(item_params)
+    flash[:notice] = 'Item was successfully created.' 
+     redirect_to items_path
   end
 
   # PATCH/PUT /items/1
@@ -66,6 +58,9 @@ class ItemsController < ApplicationController
       @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
       if @current_user == nil
         flash[:notice] = "Please log in or sign up."
+        redirect_to items_path
+      elsif @current_user.items.find_by(id: params[:id]) == nil
+        flash[:notice] = "Please edit or delete your own product"
         redirect_to items_path
       end
     end
