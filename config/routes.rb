@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post '/login', to: 'farmers#log_in', as: 'log_in'
+  get '/logout', to: 'farmers#log_out', as: 'log_out'
 end

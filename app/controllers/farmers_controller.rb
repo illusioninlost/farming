@@ -65,6 +65,12 @@ class FarmersController < ApplicationController
     end
   end
 
+  def log_out
+    session.clear
+    flash[:notice] = "You have successfully logged out."
+    redirect_to root_path
+  end
+
   private
    
     def set_farmer
