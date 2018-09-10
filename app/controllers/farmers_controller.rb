@@ -25,7 +25,7 @@ class FarmersController < ApplicationController
     
     respond_to do |format|
       if @farmer.save
-        format.html { redirect_to @farmer, notice: 'Farmer was successfully created.' }
+        format.html { redirect_to items_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @farmer }
       else
         format.html { render :new }
@@ -35,7 +35,13 @@ class FarmersController < ApplicationController
   end
 
   def log_in
-    redirect_to root_path
+    @farmer = Farmer.find_by(:username => params[:username])
+    if @farmer && @farmer.authenticate(params[:password])
+      session[:farmer_id]=@farmer.id
+      redirect_to items_path
+    else
+      redirect_to new_farmer_path
+    end
   end
 
   def update
