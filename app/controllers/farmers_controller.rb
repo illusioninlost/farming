@@ -38,6 +38,7 @@ class FarmersController < ApplicationController
     @farmer = Farmer.find_by(:username => params[:username])
     if @farmer && @farmer.authenticate(params[:password])
       session[:farmer_id]=@farmer.id
+      flash[:notice] = "You have successfully logged in."
       redirect_to items_path
     else
       redirect_to new_farmer_path
