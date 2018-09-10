@@ -1,27 +1,24 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_user, only: [:new, :edit, :destroy]
-  # GET /items
-  # GET /items.json
+  before_action :no_edit_or_destroy, only: [:edit, :destroy]
   def index
     @items = Item.all
   end
 
-  # GET /items/1
-  # GET /items/1.json
+  
   def show
   end
-  # GET /items/new
+  
   def new
     @item = Item.new
   end
 
-  # GET /items/1/edit
+  
   def edit
   end
 
-  # POST /items
-  # POST /items.json
+  
   def create
     @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
     @current_user.items.create!(item_params)
@@ -29,28 +26,20 @@ class ItemsController < ApplicationController
      redirect_to items_path
   end
 
-  # PATCH/PUT /items/1
-  # PATCH/PUT /items/1.json
+  
   def update
-    respond_to do |format|
-      if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
-      else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
+    @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
+    @current_user.items.find_by(id: params[:id]).update(item_params)
+    flash[:notice] = 'Item was successfully updated.' 
+     redirect_to items_path
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
+
   def destroy
-    @item.destroy
-    respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
+    @current_user.items.find_by(id: params[:id]).destroy
+    flash[:notice] = 'Item was successfully destroyed.' 
+    redirect_to items_path
   end
 
   private
@@ -59,11 +48,17 @@ class ItemsController < ApplicationController
       if @current_user == nil
         flash[:notice] = "Please log in or sign up."
         redirect_to items_path
-      elsif @current_user.items.find_by(id: params[:id]) == nil
+      end
+    end
+
+    def no_edit_or_destroy
+      @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
+      if @current_user.items.find_by(id: params[:id]) == nil
         flash[:notice] = "Please edit or delete your own product"
         redirect_to items_path
       end
     end
+
     def set_item
       @item = Item.find(params[:id])
     end
