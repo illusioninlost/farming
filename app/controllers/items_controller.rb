@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_user, only: [:new, :edit, :destroy]
   # GET /items
   # GET /items.json
   def index
@@ -11,10 +11,9 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
   end
-
   # GET /items/new
   def new
-    check_user
+
     @item = Item.new
   end
 
@@ -64,7 +63,7 @@ class ItemsController < ApplicationController
 
   private
     def check_user
-      @current_user = Farmer.find(id: session[:farmer_id]) if session[:farmer_id]
+      @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
       if @current_user == nil
         flash[:notice] = "Please log in or sign up."
         redirect_to items_path
