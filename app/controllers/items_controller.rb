@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    check_user
     @item = Item.new
   end
 
@@ -62,12 +63,17 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def check_user
+      @current_user = Farmer.find(id: session[:farmer_id]) if session[:farmer_id]
+      if @current_user == nil
+        flash[:notice] = "Please log in or sign up."
+        redirect_to items_path
+      end
+    end
     def set_item
       @item = Item.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
       params.require(:item).permit(:name, :value, :weight, :location)
     end

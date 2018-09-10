@@ -25,6 +25,7 @@ class FarmersController < ApplicationController
     
     respond_to do |format|
       if @farmer.save
+        session[:farmer_id]=@farmer.id
         format.html { redirect_to items_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @farmer }
       else
