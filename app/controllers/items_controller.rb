@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   def edit
   end
 
-  
+# when there is an error in validation, how to add errors to the object
   def create
     @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
     @current_user.items.create!(item_params)
