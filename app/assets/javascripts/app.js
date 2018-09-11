@@ -19,4 +19,8 @@ Comment.prototype.format = function() {
     return `<li class="comment">${this.content}</li>`
 }
 
+$("#calculate").click(function(){
+    console.log("I clicked the button");
+});
+
 });
