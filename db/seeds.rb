@@ -20,3 +20,4 @@ Item.create!(name:"lemon", value: "0.33", weight: "300", location: "Yellow Farm"
 Comment.create!(content:"The tomatos are good.", item_id:1)
 Comment.create!(content:"The corn is expensive.", item_id:2)
 Comment.create!(content:"Lots of fresh food as always.", item_id:1)
+
