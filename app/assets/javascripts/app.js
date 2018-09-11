@@ -10,4 +10,13 @@ $( document ).ready(function() {
     //     console.log("You clicked a paragraph!");
     // })
 
+//constructor function
+function Comment(comment){
+    this.content = comment.content
+}
+
+Comment.prototype.format = function() {
+    return `<li class="comment">${this.content}</li>`
+}
+
 });
