@@ -25,6 +25,9 @@
 <br>
 <p id="comment-heading"> Comments </p>
 <ul id="comment-list">
+  <% @item.comments.each do |comment|%>
+    <li><%= comment.content%></li>
+    <%end%>
 </ul>
 <br>
 <%= link_to 'Edit', edit_item_path(@item) %> |
