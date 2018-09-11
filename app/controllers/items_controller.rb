@@ -42,6 +42,10 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def add
+      binding.pry
+  end
+
   private
     def check_user
       @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
@@ -65,5 +69,9 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:name, :value, :weight, :location)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content)
     end
 end

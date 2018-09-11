@@ -31,6 +31,13 @@
 </ul>
 
 
+<%= form_tag("/items/#{@item.id}/add", method: "post") do %>
+  <%= label_tag(:content, "") %>
+  <%= text_area_tag(:content) %>
+  <%= submit_tag("Add Comment") %>
+<% end %>
+
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
 </div>
