@@ -20,7 +20,16 @@ Comment.prototype.format = function() {
 }
 
 $("#calculate").click(function(){
-    console.log("I clicked the button");
+    var grams = document.getElementById("grams").value;
+    var pounds = document.getElementById("pounds").value;
+    if (grams !== "") {
+        document.getElementById("pounds").value = (parseFloat(grams) * 0.00220462).toString();
+    }
+    else if (pounds !== "") {    
+        document.getElementById("grams").value = (parseFloat(pounds) * 453.592).toString();
+    } else {
+        alert("Enter a number for either grams or pounds");
+    }
 });
 
 });
