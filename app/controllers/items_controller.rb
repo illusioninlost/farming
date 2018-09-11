@@ -1,3 +1,4 @@
+require 'pry'
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_user, only: [:new, :edit, :destroy]
@@ -43,8 +44,15 @@ class ItemsController < ApplicationController
   end
 
   def add
-      binding.pry
+    @item = Item.find(params[:id])
+    
+    @comment = Comment.new(content: params[:content])
+    @item.comments << @comment
+    @comment.save
+ 
+    redirect_to item_path(@item)
   end
+
 
   private
     def check_user

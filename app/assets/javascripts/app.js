@@ -1,6 +1,7 @@
-$( document ).ready(function() {
+document.addEventListener("turbolinks:load", function() {
   
-   
+
+
 
     // var list = $("#comments-list");
     // list.append(`<li>Hello</li>`);
@@ -20,6 +21,7 @@ Comment.prototype.format = function() {
 }
 //show page
 $("#calculate").click(function(){
+    
     var grams = document.getElementById("grams").value;
     var pounds = document.getElementById("pounds").value;
     if (grams !== "") {
