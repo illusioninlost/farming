@@ -18,7 +18,7 @@ function Comment(comment){
 Comment.prototype.format = function() {
     return `<li class="comment">${this.content}</li>`
 }
-
+//show page
 $("#calculate").click(function(){
     var grams = document.getElementById("grams").value;
     var pounds = document.getElementById("pounds").value;
