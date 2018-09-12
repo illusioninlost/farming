@@ -12,12 +12,12 @@ document.addEventListener("turbolinks:load", function() {
     // })
 
 //constructor function
-function Comment(comment){
-    this.content = comment.content
+function Comment(content){
+    this.content = content;
 }
 
 Comment.prototype.format = function() {
-    return `<li class="comment">${this.content}</li>`
+    return `<li class="comment">${this.content}</li>`;
 }
 //show page
 $("#calculate").click(function(){
@@ -46,11 +46,12 @@ $("#add-comment").submit(function(event){
     
     // Send the data using post
     var posting = $.post(url, {content: term, authenticity_token: token});
-
-   
+    
     posting.done(function(data){
+        var newComment = new Comment(term)
+        var commentHTML = newComment.format()
         var list = $("#comment-list");
-       list.append(`<li>reply</li>`);
+        list.append(commentHTML);
     });
 });
 
