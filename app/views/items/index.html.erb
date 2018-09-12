@@ -3,14 +3,14 @@
 
 
 <h1>Farmers Market</h1>
-
+<br>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Value</th>
-      <th>Weight</th>
-      <th>Location</th>
+      <th class="right-margin">Product</th>
+      <th class="right-margin">Price Per Pound(lb)</th>
+      <th class="right-margin">Total Available (lbs)</th>
+      <th class="right-margin">From</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +18,10 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.name %></td>
-        <td><%= item.value %></td>
-        <td><%= item.weight %></td>
-        <td><%= item.location %></td>
+        <td><%= item.name.capitalize %></td>
+        <td class="center"><%= number_with_precision(item.value, precision: 2) %></td>
+        <td class="center"><%= item.weight %></td>
+        <td><%= item.location.capitalize %></td>
         <td><%= link_to 'See', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

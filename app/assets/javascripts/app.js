@@ -17,7 +17,7 @@ function Comment(content){
 }
 
 Comment.prototype.format = function() {
-    return `<li class="comment">${this.content}</li>`;
+    return `<li class="comment"><strong>${this.content}</strong></li>`;
 }
 //show page
 $("#calculate").click(function(){
