@@ -22,12 +22,17 @@ class ItemsController < ApplicationController
 # when there is an error in validation, how to add errors to the object
   def create
     @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
-    if @current_user.items.create!(item_params)
+    if @current_user.items.create(item_params).valid?
+      @current_user.items.create(item_params)
       flash[:notice] = 'Item was successfully created.'
-      binding.pry 
       redirect_to items_path
+      # begin
+      #   @current_user.items.create!(item_params)
+      # rescue ActiveRecord::RecordInvalid => invalid
+      #   redirect_to new_item_path(invalid.record)
+      # end
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
