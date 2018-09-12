@@ -22,9 +22,13 @@ class ItemsController < ApplicationController
 # when there is an error in validation, how to add errors to the object
   def create
     @current_user = Farmer.find(session[:farmer_id]) if session[:farmer_id]
-    @current_user.items.create!(item_params)
-    flash[:notice] = 'Item was successfully created.' 
-     redirect_to items_path
+    if @current_user.items.create!(item_params)
+      flash[:notice] = 'Item was successfully created.'
+      binding.pry 
+      redirect_to items_path
+    else
+      render :new
+    end
   end
 
   
