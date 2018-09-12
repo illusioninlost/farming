@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
     @item.comments << @comment
     @comment.save
  
-    redirect_to item_path(@item)
+    # redirect_to item_path(@item)
   end
 
 

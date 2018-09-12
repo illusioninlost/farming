@@ -31,7 +31,7 @@
 </ul>
 
 
-<%= form_tag("/items/#{@item.id}/add", method: "post") do %>
+<%= form_tag("/items/#{@item.id}/add", method: "post", id: "add-comment") do %>
   <%= label_tag(:content, "") %>
   <%= text_area_tag(:content) %>
   <%= submit_tag("Add Comment") %>
