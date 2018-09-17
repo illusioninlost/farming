@@ -3,8 +3,14 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :check_user, only: [:new, :edit, :destroy]
   before_action :no_edit_or_destroy, only: [:edit, :destroy]
+  
   def index
     @items = Item.all
+    respond_to do |format|
+      format.html 
+      format.json {render json: @items}
+    end
+
   end
 
   
@@ -12,7 +18,6 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html 
       format.json {render json: @item}
-    
     end
 
   end

@@ -67,14 +67,14 @@ $("#add-comment").submit(function(event){
     });
 });
 
-$("a.see").on("click", function(event){
-    event.preventDefault();
-    var url = this.href + ".json";
+// $("a.see").on("click", function(event){
+
+//     var url = this.href + ".json";
   
-    $.get(url, function(data){
-        debugger
-    })
-});
+//     $.get(url, function(data){
+//         console.log(data)
+//     })
+// });
 
 
 });
