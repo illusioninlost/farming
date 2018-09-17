@@ -11,15 +11,26 @@ document.addEventListener("turbolinks:load", function() {
     //     console.log("You clicked a paragraph!");
     // })
 
-//constructor function
+// constructor function
 function Comment(content){
     this.content = content;
 }
+// class Comment{
+
+//     constructor(content) {
+//         this.content = content
+        
+//     }
+
+//     format() {
+//         return `<li class="comment"><strong>${this.content}</strong></li>`;
+//     }
+// }
 
 Comment.prototype.format = function() {
     return `<li class="comment"><strong>${this.content}</strong></li>`;
 }
-//show page
+//new item page
 $("#calculate").click(function(){
     
     var grams = document.getElementById("grams").value;
@@ -48,11 +59,22 @@ $("#add-comment").submit(function(event){
     var posting = $.post(url, {content: term, authenticity_token: token});
     
     posting.done(function(data){
+   
         var newComment = new Comment(term)
         var commentHTML = newComment.format()
         var list = $("#comment-list");
         list.append(commentHTML);
     });
 });
+
+$("a.see").on("click", function(event){
+    event.preventDefault();
+    var url = this.href + ".json";
+  
+    $.get(url, function(data){
+        debugger
+    })
+});
+
 
 });

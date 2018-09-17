@@ -22,7 +22,7 @@
         <td class="center"><%= number_with_precision(item.value, precision: 2) %></td>
         <td class="center"><%= item.weight %></td>
         <td><%= item.location.capitalize %></td>
-        <td><%= link_to 'See', item %></td>
+        <td><%= link_to 'See', item, class:"see" %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

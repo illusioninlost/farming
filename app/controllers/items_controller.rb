@@ -9,6 +9,12 @@ class ItemsController < ApplicationController
 
   
   def show
+    respond_to do |format|
+      format.html 
+      format.json {render json: @item}
+    
+    end
+
   end
   
   def new
