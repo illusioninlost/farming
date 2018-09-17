@@ -67,14 +67,16 @@ $("#add-comment").submit(function(event){
     });
 });
 
-// $("a.see").on("click", function(event){
-
-//     var url = this.href + ".json";
+$("a.see").on("click", function(event){
+    event.preventDefault();
+    var url = this.href + ".json";
   
-//     $.get(url, function(data){
-//         console.log(data)
-//     })
-// });
+    $.get(url, function(data){
+        var commentsArray = data.comments;
+       
+        $("div#comment-results").append(`This product has ${commentsArray.length} comments.`)
+    })
+});
 
 
 });
