@@ -7,12 +7,12 @@
 <div class= "bg-secondary increase">
 <p >
   <strong>Product:</strong>
-  <%= @item.name %>
+  <%= @item.name.capitalize %>
 </p>
 
 <p>
   <strong>Price per pound:</strong>
-  <%= @item.value %> lbs
+  $<%= number_with_precision(@item.value, precision: 2)%>/lb
 </p>
 
 <p>
