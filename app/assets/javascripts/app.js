@@ -78,5 +78,16 @@ $("a.see").on("click", function(event){
     })
 });
 
+$("#load-items").on("click", function(event){
+    event.preventDefault();
+  
+    $.get("/items.json", function(data){
+        data.forEach(element => {
+            console.log(element)
+        });
+       
+    })
+});
+
 
 });
