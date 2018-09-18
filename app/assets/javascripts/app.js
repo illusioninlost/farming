@@ -67,6 +67,11 @@ $("#add-comment").submit(function(event){
     });
 });
 
+function Item(itemParams){
+    this.name = itemParams.name;
+    this.value = itemParams.value;
+}
+
 $("a.see").on("click", function(event){
     event.preventDefault();
     var url = this.href + ".json";
@@ -83,7 +88,8 @@ $("#load-items").on("click", function(event){
   
     $.get("/items.json", function(data){
         data.forEach(element => {
-            console.log(element)
+        var itemElement = new Item(element);
+        $('#item-results').append(`<p>Product: ${itemElement.name}, Price Per Pound: \$${itemElement.value} /lb</p>`)  
         });
        
     })
