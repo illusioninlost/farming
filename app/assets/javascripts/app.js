@@ -78,7 +78,7 @@ $("a.see").on("click", function(event){
   
     $.get(url, function(data){
         var commentsArray = data.comments;
-       
+        $("div#comment-results").html("")
         $("div#comment-results").append(`This product has ${commentsArray.length} comments.`)
     })
 });
@@ -94,6 +94,42 @@ $("#load-items").on("click", function(event){
        
     })
 });
+
+
+$("#alpha").on("click", function(event){
+    event.preventDefault();
+  
+    $.get("/items.json", function(data){
+        
+       var results = data.sort(function(a, b) {
+            var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+            if (a.value < b.value) {
+                return -1;
+            }
+            if (a.value > b.value) {
+                return 1;
+            }
+          
+            // names must be equal
+            return 0;
+        });
+
+        data.forEach(element => {
+            var itemElement = new Item(element);
+            $('div#comment-results').append(`<p>Product: ${itemElement.name}, Price Per Pound: \$${itemElement.value} /lb</p>`)  
+            });
+     
+       
+    })
+});
+
 
 
 });
