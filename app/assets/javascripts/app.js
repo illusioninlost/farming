@@ -1,16 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   
 
-
-
-    // var list = $("#comment-list");
-    // list.append(`<li>Hello</li>`);
-    // list.append(`<li>second Hello</li>`)
-    // console.log(list.children());
-    // $("p").click(function() {
-    //     console.log("You clicked a paragraph!");
-    // })
-
 // constructor function
 function Comment(content){
     this.content = content;
